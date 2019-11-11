@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { shallow } from 'Enzyme';
+import { shallow } from 'enzyme';
 import App from '../App';
 import CommentBox from '../CommentBox';
 
