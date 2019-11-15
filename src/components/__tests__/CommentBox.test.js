@@ -15,9 +15,9 @@ afterEach(() => {
     wrapper.unmount();
 });
 
-it('has text area and button', () => {
+it('has text area and two button', () => {
     expect(wrapper.find('textarea').length).toEqual(1);
-    expect(wrapper.find('button').length).toEqual(1);
+    expect(wrapper.find('button').length).toEqual(2);
 });
 describe('text area', () => {
     beforeEach(() => {
