@@ -4,6 +4,12 @@ import { saveComments, fetchComments } from 'actions';
 
 class CommentBox extends React.Component {
     state = { comment: '' };
+    componentDidMount() {
+        this.navigateAway();
+    }
+    componentDidUpdate() {
+        this.navigateAway();
+    }
     handleChange = (event) => {
         this.setState({
             comment: event.target.value,
@@ -16,6 +22,11 @@ class CommentBox extends React.Component {
         this.setState({
             comment: ''
         })
+    }
+    navigateAway = () => {
+        if (!this.props.auth) {
+            this.props.history.push('/');
+        }
     }
     render() {
         return (
@@ -34,4 +45,9 @@ class CommentBox extends React.Component {
         )
     }
 }
-export default connect(null, { saveComments, fetchComments })(CommentBox);
+const mapStateToProps = (state) => {
+    return {
+        auth: state.auth,
+    }
+}
+export default connect(mapStateToProps, { saveComments, fetchComments })(CommentBox);
